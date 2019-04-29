@@ -112,11 +112,10 @@ header {
   padding: 4vmin;
 }
 
-img.Dino {
+.Dino {
   grid-area: dino;
   align-self: center;
   justify-self: center;
-
 }
 
 .Stats {
