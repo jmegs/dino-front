@@ -135,6 +135,7 @@ img.Dino {
 .Stat__Label {
   text-align: center;
   align-self: center;
+  font-size: 1.5vmax;
 }
 
 .Stat__Value {
@@ -179,7 +180,10 @@ img.Dino {
   cursor: pointer;
   font-family: "Pragmata Pro", monospace;
   text-transform: uppercase;
-  font-size: 2rem;
+}
+
+.Button--Large h3 {
+  font-size: 1.5vmax;
 }
 
 .Button--Large:active, .Button--Large:hover {
