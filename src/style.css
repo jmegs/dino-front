@@ -1,20 +1,42 @@
+@font-face {
+  font-family: "Pragmata Pro";
+  src: url('./fonts/pragmata_pro_mono_regular-webfont.woff') format('woff'), url('./fonts/pragmata_pro_mono_regular-webfont.woff2') format('woff2');
+}
+
+:root {
+  --green: hsl(126, 100%, 68%);
+}
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
-  font-family: system-ui;
+  font-family: "Pragmata Pro", system-ui;
+  text-transform: uppercase;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
@@ -24,14 +46,142 @@ img {
 }
 
 body {
+  width: 100%;
+  min-height: 100vh;
+
   font-size: 1.6rem;
   line-height: 1.6;
 
-  color: #111111;
+  color: var(--green);
+  background: #000;
 }
 
 main {
-  max-width: 112rem;
   margin: auto;
-  padding: 2rem;
+  height: 100vh;
+  width: 100%;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
+
+h1 {
+  font-size: 3.2rem;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+.u-mega-text {
+  font-size: 9.6rem;
+  -webkit-text-fill-color: black; 
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--green);
+}
+
+.u-bordered {
+  border: 2px solid var(--green);
+}
+
+.u-bordered--no-bottom {
+  border-bottom: none;
+}
+
+.u-grid {
+  padding: 6vmin;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: max-content;
+  align-content: center;
+  grid-gap: 3.2rem;
+  grid-template-areas: 
+    "dino stats buttons"
+    ;
+}
+
+header {
+  text-align: center;
+  padding: 4.8rem;
+}
+
+.Wrapper {
+  padding: 4vmin;
+}
+
+img.Dino {
+  grid-area: dino;
+  align-self: center;
+  justify-self: center;
+
+}
+
+.Stats {
+  grid-area: stats;
+
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-row-gap: 1.6rem;
+}
+
+.Stat {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.Stat__Label {
+  text-align: center;
+  align-self: center;
+}
+
+.Stat__Value {
+  font-size: 5.8rem;
+  text-align: center;
+  align-self: center;
+}
+
+.Buttons {
+  grid-area: buttons;
+  display: flex;
+  flex-direction: column;
+}
+
+.Buttons__Panel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, min-content);
+  grid-gap: 1.6rem;
+}
+
+.Button--Small {
+  padding: 1.6rem;
+  text-align: center;
+}
+
+.Button--Active, .Button--Small:hover  {
+  background: var(--green);
+  color: #000;
+}
+
+.Button--Small.Button--Active:hover {
+  opacity: 0.8;
+}
+
+.Button--Large {
+  padding: 1.6rem 3.2rem;
+  width: 100%;
+  margin-top: 1.6rem;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.Button--Large:active, .Button--Large:hover {
+  background: red;
+  color: white;
+}
+
+
