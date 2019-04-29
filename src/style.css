@@ -187,4 +187,38 @@ img.Dino {
   color: white;
 }
 
+.Alert {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+  grid-template-rows: 1fr 480px 1fr;
+  grid-template-columns: 1fr 960px 1fr;
+  background: rgba(100, 0, 0, 0.4);
+}
+
+.Alert__Inner {
+  grid-column: 2 / 3;
+  grid-row: 2;
+  background: red;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: white;
+}
+
+.Alert__Inner h1 {
+  font-size: 9.6rem;
+  margin-bottom: 0.25em;
+}
+
+.Alert--active {
+  display: grid;
+}
+
 @import "./vintage.css";

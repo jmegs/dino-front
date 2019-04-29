@@ -12,7 +12,7 @@ main::after {
     opacity: 0;
     z-index: 2;
     pointer-events: none;
-    animation: flicker 0.12s infinite;
+    animation: flicker .12s infinite;
 }
 @keyframes flicker {
   0% {
