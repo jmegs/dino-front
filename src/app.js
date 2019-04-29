@@ -1,2 +1,3 @@
-const foo = 'hello'
-console.log(`Why ${foo} there.`)
+const roarButton = document.querySelector("#roar");
+
+roarButton.addEventListener('click', () => {alert("RAWR")})
