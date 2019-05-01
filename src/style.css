@@ -1,6 +1,7 @@
 @font-face {
-  font-family: "Pragmata Pro";
-  src: url('./fonts/pragmata_pro_mono_regular-webfont.woff') format('woff'), url('./fonts/pragmata_pro_mono_regular-webfont.woff2') format('woff2');
+  font-family: 'Pragmata Pro';
+  src: url('./fonts/pragmata_pro_mono_regular-webfont.woff') format('woff'),
+    url('./fonts/pragmata_pro_mono_regular-webfont.woff2') format('woff2');
 }
 
 :root {
@@ -11,7 +12,7 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
-  font-family: "Pragmata Pro", monospace;
+  font-family: 'Pragmata Pro', monospace;
   text-transform: uppercase;
 }
 
@@ -78,7 +79,7 @@ h3 {
 
 .u-mega-text {
   font-size: 9.6rem;
-  -webkit-text-fill-color: black; 
+  -webkit-text-fill-color: black;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--green);
 }
@@ -93,20 +94,27 @@ h3 {
 
 .u-grid {
   padding: 0 3.2rem;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: max-content;
-  align-content: center;
-  grid-gap: 3.2rem;
-  grid-template-areas: 
-    "dino stats buttons"
-    ;
+  @media (min-width: 960px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: max-content;
+    align-content: center;
+    grid-gap: 3.2rem;
+    grid-template-areas: 'dino stats buttons';
+  }
 }
 
 header {
   text-align: center;
   padding: 4vmin;
+}
+
+.Dino,
+.Stats,
+.Buttons {
+  @media (max-width: 959px) {
+    margin: 3.2rem 0;
+  }
 }
 
 .Dino {
@@ -164,10 +172,10 @@ header {
 .Button {
   text-align: center;
   background: black;
-  color: var(--green);  
-  text-shadow: inherit; 
+  color: var(--green);
+  text-shadow: inherit;
   cursor: pointer;
-  font-family: "Pragmata Pro", monospace;
+  font-family: 'Pragmata Pro', monospace;
   text-transform: uppercase;
 }
 
@@ -175,7 +183,8 @@ header {
   padding: 1.6rem;
 }
 
-.Button--Active, .Button--Small:hover  {
+.Button--Active,
+.Button--Small:hover {
   background: var(--green);
   color: #000;
 }
@@ -195,7 +204,8 @@ header {
   font-size: 1.5vmax;
 }
 
-.Button--Large:active, .Button--Large:hover {
+.Button--Large:active,
+.Button--Large:hover {
   background: red;
   color: white;
   border-color: red;
@@ -221,7 +231,6 @@ header {
   align-items: center;
   text-align: center;
   position: relative;
-
 }
 
 .Modal__Inner h1 {
@@ -250,7 +259,7 @@ header {
 }
 
 .Modal--tts .Modal__Inner {
-  background: rgba(0,0,0,0.9);
+  background: rgba(0, 0, 0, 0.9);
   color: var(--green);
 }
 
@@ -262,7 +271,7 @@ header {
   text-align: center;
   display: grid;
   grid-template-columns: auto max-content;
-  grid-template-areas: "input button";
+  grid-template-areas: 'input button';
   grid-gap: 2.4rem;
   width: 100%;
   padding: 0 6.4rem;
@@ -289,14 +298,10 @@ header {
   outline: thick double var(--green);
 }
 
-
 .TTS-Form button {
   grid-area: button;
   font-size: 2.4rem;
   padding: 2.4rem 3.2rem;
 }
 
-
-
-
-@import "./vintage.css";
+@import './vintage.css';
