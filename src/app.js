@@ -48,6 +48,7 @@ ttsForm.onsubmit = function(event) {
   fetch(`/tts?say=${encodeURIComponent(value)}`)
     .then(res => console.log(`Responded ${res.status}`))
     .catch(err => console.error(err))
+  document.querySelector('#js-tts-input').value = ''
   removeModal(ttsModal)
 }
 
