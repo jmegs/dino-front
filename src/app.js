@@ -27,6 +27,7 @@ modalCancel.addEventListener('click', function(event) {
   let el = event.target
   let theModal = el.closest('.Modal--active')
   theModal.classList.remove('Modal--active')
+  document.querySelector('#js-tts-input').value = ''
 })
 
 roarButton.addEventListener('click', function(event) {
@@ -80,4 +81,46 @@ function lightRandomButtons() {
 setInterval(() => {
   clearButtons()
   lightRandomButtons()
-}, 1000)
+}, 2000)
+
+// Animate Values
+function animateValue(el, start, end, duration) {
+  // assumes integer values for start and end
+
+  // var obj = document.getElementById(id)
+  var range = end - start
+  // no timer shorter than 50ms (not really visible any way)
+  var minTimer = 50
+  // calc step time to show all interediate values
+  var stepTime = Math.abs(Math.floor(duration / range))
+
+  // never go below minTimer
+  stepTime = Math.max(stepTime, minTimer)
+
+  // get current time and calculate desired end time
+  var startTime = new Date().getTime()
+  var endTime = startTime + duration
+  var timer
+
+  function run() {
+    var now = new Date().getTime()
+    var remaining = Math.max((endTime - now) / duration, 0)
+    var value = Math.round(end - remaining * range)
+    el.innerHTML = value
+    if (value == end) {
+      clearInterval(timer)
+    }
+  }
+
+  timer = setInterval(run, stepTime)
+  run()
+}
+
+setInterval(() => {
+  const els = document.querySelectorAll('.Stat__Value')
+  const selectedEl = els[getRandomNumber(els.length)]
+
+  let prevValue = parseInt(selectedEl.innerHTML)
+  let newValue = getRandomNumber(9999)
+  animateValue(selectedEl, prevValue, newValue, 2000)
+}, 3000)
