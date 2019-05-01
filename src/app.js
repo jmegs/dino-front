@@ -13,8 +13,10 @@ modalCancel.addEventListener('click', function(event) {
 })
 
 roarButton.addEventListener('click', function(event) {
-  console.log(`Fluffy Roars!`)
+  // `GET /pre/<name>`
+  console.log(`Fluffy Roars!\nGET /pre/<name>`)
   activateModalWithTimeout(roarModal)
+  alert(`Fluffy Roars!\nGET /pre/<name>`)
 })
 
 ttsButton.addEventListener('click', function(event) {
@@ -38,9 +40,10 @@ function removeModal(el) {
 }
 
 ttsForm.onsubmit = function(event) {
+  // `GET /tts?say=<text>`
   let value = document.querySelector('#js-tts-input').value
   event.preventDefault()
-  alert(`Fluffy Says: ${value}`)
+  alert(`Fluffy Says: ${value}\nGET /tts?say="${value}"`)
   console.log(`Fluffy Says: ${value}`)
   removeModal(ttsModal)
 }
