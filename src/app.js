@@ -7,12 +7,15 @@ const roarModal = document.querySelector('#js-roar-modal')
 
 const modalCancel = document.querySelector('#js-modal-cancel')
 
+const katyButton = document.querySelector('#js-katy')
+const katyModal = document.querySelector('#js-katy-modal')
+
 // Modal Utilities
-function activateModalWithTimeout(el) {
+function activateModalWithTimeout(el, duration = 3000) {
   el.classList.add('Modal--active')
   setTimeout(() => {
     el.classList.remove('Modal--active')
-  }, 3000)
+  }, duration)
 }
 
 function activateModal(el) {
@@ -52,6 +55,13 @@ ttsForm.onsubmit = function(event) {
   document.querySelector('#js-tts-input').value = ''
   removeModal(ttsModal)
 }
+
+katyButton.addEventListener('click', function(event) {
+  activateModalWithTimeout(katyModal, 5000)
+  fetch(`/pre/katy-perry`)
+    .then(res => console.log(`Responded ${res.status}`))
+    .catch(err => console.error(err))
+})
 
 // Blinking Buttons
 const buttons = document.querySelectorAll('.Buttons__Panel .Button')
