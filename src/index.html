@@ -37,23 +37,29 @@
       </section>
       <section class="Buttons">
         <div class="Buttons__Panel">
-          <div class="Button--Small u-bordered">YNA</div>
-          <div class="Button--Small u-bordered">NWK</div>
-          <div class="Button--Small u-bordered Button--Active">OHB</div>
-          <div class="Button--Small u-bordered">QFV</div>
-          <div class="Button--Small u-bordered">RLV</div>
-          <div class="Button--Small u-bordered">FHL</div>
-          <div class="Button--Small u-bordered Button--Active">KTV</div>
-          <div class="Button--Small u-bordered">ODT</div>
-          <div class="Button--Small u-bordered Button--Active">UIC</div>
-          <div class="Button--Small u-bordered">IYO</div>
-          <div class="Button--Small u-bordered">SUR</div>
-          <div class="Button--Small u-bordered">CGB</div>
-          <div class="Button--Small u-bordered">IDS</div>
-          <div class="Button--Small u-bordered">PQT</div>
-          <div class="Button--Small u-bordered">BWL</div>
+          <div class="Button Button--Small u-bordered">YNA</div>
+          <div class="Button Button--Small u-bordered">NWK</div>
+          <div class="Button Button--Small u-bordered Button--Active">OHB</div>
+          <div class="Button Button--Small u-bordered">QFV</div>
+          <div class="Button Button--Small u-bordered">RLV</div>
+          <div class="Button Button--Small u-bordered">FHL</div>
+          <div class="Button Button--Small u-bordered Button--Active">KTV</div>
+          <div class="Button Button--Small u-bordered">ODT</div>
+          <div class="Button Button--Small u-bordered Button--Active">UIC</div>
+          <div class="Button Button--Small u-bordered">IYO</div>
+          <div class="Button Button--Small u-bordered">SUR</div>
+          <div class="Button Button--Small u-bordered">CGB</div>
+          <div class="Button Button--Small u-bordered">IDS</div>
+          <div class="Button Button--Small u-bordered">PQT</div>
+          <div class="Button Button--Small u-bordered">BWL</div>
         </div>
-        <button class="Button--Large Button--Active" id="roar">
+        <button class="Button Button--Large Button--Active u-bordered" id="js-tts-button">
+          <h3>
+            Execute 582-XRay<br>
+            TTS Protocol
+          </h3>
+        </button>
+        <button class="Button Button--Large Button--Active u-bordered" id="js-roar-button">
           <h3>
             Execute 283-Alpha<br>
             Roar Protocol
@@ -65,12 +71,22 @@
       <marquee class="u-mega-text">Caution!! Exercise Extreme Caution Around the Specimen</marquee>
     </footer> -->
   </main>
-  <div class="scanlines"></div>
-  <div class="Alert">
-    <div class="Alert__Inner">
+  <div class="Modal Modal--alert" id="js-roar-modal">
+    <div class="Modal__Inner">
       <h1>Roar Initiated</h1>
       <h3>Have a Nice Day :)</h3>
     </div>
   </div>
+  <div class="Modal Modal--tts" id="js-tts-modal">
+    <div class="Modal__Inner">
+      <h1>Protocol 582-XRay</h1>
+      <form class="TTS-Form" id="js-tts-form" autocomplete="off">
+        <input id="js-tts-input" type="text" class="u-bordered" placeholder="Enter dinosaur speech pattern…">
+        <button class="Button Button--Small u-bordered">Execute</button>
+      </form>
+      <p class="Modal__Cancel" id="js-modal-cancel">Terminate Process</p>
+    </div>
+  </div>
+  <div class="scanlines"></div>
 </body>
 </html>

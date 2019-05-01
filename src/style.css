@@ -5,6 +5,7 @@
 
 :root {
   --green: hsl(126, 100%, 68%);
+  --text-shadow: 0 0.2rem 1rem var(--green);
 }
 
 html {
@@ -91,7 +92,7 @@ h3 {
 }
 
 .u-grid {
-  padding: 6vmin;
+  padding: 0 3.2rem;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -105,10 +106,6 @@ h3 {
 
 header {
   text-align: center;
-  padding: 4vmin;
-}
-
-.Wrapper {
   padding: 4vmin;
 }
 
@@ -164,9 +161,18 @@ header {
   grid-gap: 1.6rem;
 }
 
+.Button {
+  text-align: center;
+  background: black;
+  color: var(--green);  
+  text-shadow: inherit; 
+  cursor: pointer;
+  font-family: "Pragmata Pro", monospace;
+  text-transform: uppercase;
+}
+
 .Button--Small {
   padding: 1.6rem;
-  text-align: center;
 }
 
 .Button--Active, .Button--Small:hover  {
@@ -183,10 +189,6 @@ header {
   width: 100%;
   margin-top: 1.6rem;
   height: 100%;
-  border: none;
-  cursor: pointer;
-  font-family: "Pragmata Pro", monospace;
-  text-transform: uppercase;
 }
 
 .Button--Large h3 {
@@ -196,9 +198,10 @@ header {
 .Button--Large:active, .Button--Large:hover {
   background: red;
   color: white;
+  border-color: red;
 }
 
-.Alert {
+.Modal {
   position: absolute;
   top: 0;
   height: 100%;
@@ -206,30 +209,94 @@ header {
   display: none;
   grid-template-rows: 1fr 480px 1fr;
   grid-template-columns: 1fr 960px 1fr;
-  background: rgba(100, 0, 0, 0.4);
+  background: rgba(0, 100, 0, 0.4);
 }
 
-.Alert__Inner {
+.Modal__Inner {
   grid-column: 2 / 3;
   grid-row: 2;
-  background: red;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative;
 
+}
+
+.Modal__Inner h1 {
+  font-size: 9.6rem;
+  margin-bottom: 0.25em;
+  margin-top: -2.4rem;
+}
+
+.Modal__Cancel {
+  position: absolute;
+  bottom: 1.6rem;
+  cursor: pointer;
+}
+
+.Modal--active {
+  display: grid;
+}
+
+.Modal--alert .Modal {
+  background: rbga(100, 0, 0, 0.4);
+}
+
+.Modal--alert .Modal__Inner {
+  background: red;
   color: white;
 }
 
-.Alert__Inner h1 {
-  font-size: 9.6rem;
-  margin-bottom: 0.25em;
+.Modal--tts .Modal__Inner {
+  background: rgba(0,0,0,0.9);
+  color: var(--green);
 }
 
-.Alert--active {
-  display: grid;
+.Modal--tts h2 {
+  margin-bottom: 3.2rem;
 }
+
+.TTS-Form {
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto max-content;
+  grid-template-areas: "input button";
+  grid-gap: 2.4rem;
+  width: 100%;
+  padding: 0 6.4rem;
+}
+
+.TTS-Form input {
+  background: black;
+  color: var(--green);
+  font-family: 'Pragmata Pro', monospace;
+  text-transform: uppercase;
+  font-size: 2.4rem;
+
+  grid-area: input;
+  padding: 2.4rem 1.6rem;
+}
+
+.TTS-Form input::placeholder {
+  color: var(--green);
+  opacity: 0.5;
+  text-shadow: var(--text-shadow);
+}
+
+.TTS-Form input:focus {
+  outline: thick double var(--green);
+}
+
+
+.TTS-Form button {
+  grid-area: button;
+  font-size: 2.4rem;
+  padding: 2.4rem 3.2rem;
+}
+
+
+
 
 @import "./vintage.css";
