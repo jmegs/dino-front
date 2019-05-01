@@ -16,7 +16,9 @@ roarButton.addEventListener('click', function(event) {
   // `GET /pre/<name>`
   console.log(`Fluffy Roars!\nGET /pre/<name>`)
   activateModalWithTimeout(roarModal)
-  alert(`Fluffy Roars!\nGET /pre/<name>`)
+  fetch(`/pre/roar2`)
+    .then(res => console.log(`Responded ${res.status}`))
+    .catch(err => console.error(err))
 })
 
 ttsButton.addEventListener('click', function(event) {
@@ -43,7 +45,9 @@ ttsForm.onsubmit = function(event) {
   // `GET /tts?say=<text>`
   let value = document.querySelector('#js-tts-input').value
   event.preventDefault()
-  alert(`Fluffy Says: ${value}\nGET /tts?say="${value}"`)
   console.log(`Fluffy Says: ${value}`)
+  fetch(`/tts?say=${encodeURIComponent(value)}`)
+    .then(res => console.log(`Responded ${res.status}`))
+    .catch(err => console.error(err))
   removeModal(ttsModal)
 }
