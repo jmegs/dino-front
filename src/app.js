@@ -3,7 +3,7 @@ const ttsForm = document.querySelector('#js-tts-form')
 const ttsModal = document.querySelector('#js-tts-modal')
 
 const roarButton = document.querySelector('#js-roar-button')
-const roarModal = document.querySelector('#js-roar-modal')
+const alertModal = document.querySelector('#js-alert-modal')
 
 const modalCancel = document.querySelector('#js-modal-cancel')
 
@@ -22,6 +22,12 @@ function activateModal(el) {
   el.classList.add('Modal--active')
 }
 
+function activateAlertModalWithText(text = 'Alert Alert') {
+  let el = alertModal
+  el.classList.add('Modal--active')
+  el.querySelector('h1').innerHTML = text
+}
+
 function removeModal(el) {
   el.classList.remove('Modal--active')
 }
@@ -33,8 +39,30 @@ modalCancel.addEventListener('click', function(event) {
   document.querySelector('#js-tts-input').value = ''
 })
 
+// Check if Dino is Online
+window.onload = event => {
+  fetch(`/online`).then(res => {
+    let code = res.status
+    switch (code) {
+      case 404:
+        activateAlertModalWithText('Error<br>Cyndie is Offline')
+        break
+      case 503:
+        activateAlertModalWithText('ERROR<br>Dino Not Found')
+        break
+      default:
+        console.log(`${code}: Dino Found`)
+        break
+    }
+  })
+  // .catch(err => {
+  //   console.error(error)
+  // })
+}
+
+// Button Listeners
 roarButton.addEventListener('click', function(event) {
-  activateModalWithTimeout(roarModal)
+  activateModalWithTimeout(alertModal)
   fetch(`/pre/roar2`)
     .then(res => console.log(`Responded ${res.status}`))
     .catch(err => console.error(err))
