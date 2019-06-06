@@ -41,20 +41,22 @@ modalCancel.addEventListener('click', function(event) {
 
 // Check if Dino is Online
 window.onload = event => {
-  fetch(`/online`).then(res => {
-    let code = res.status
-    switch (code) {
-      case 404:
-        activateAlertModalWithText('Error<br>Cyndie is Offline')
-        break
-      case 503:
-        activateAlertModalWithText('ERROR<br>Dino Not Found')
-        break
-      default:
-        console.log(`${code}: Dino Found`)
-        break
-    }
-  })
+  if (/fluffy/.test(window.location.href)) {
+    fetch(`/online`).then(res => {
+      let code = res.status
+      switch (code) {
+        case 404:
+          activateAlertModalWithText('Error<br>Cyndie is Offline')
+          break
+        case 503:
+          activateAlertModalWithText('ERROR<br>Dino Not Found')
+          break
+        default:
+          console.log(`${code}: Dino Found`)
+          break
+      }
+    })
+  }
   // .catch(err => {
   //   console.error(error)
   // })
