@@ -9,6 +9,11 @@
   --text-shadow: 0 0.2rem 1rem var(--green);
 }
 
+::selection {
+  color: white;
+  background-color: var(--green);
+}
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
